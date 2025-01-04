@@ -11,17 +11,10 @@ class Tree{
         this.root = null;
     }
     
-    buildTree(array, start, end){
-        // let returnedArray= this.sortArray(array);
-        // let nextReturnedArray = this.removeDups(returnedArray); 
+    buildTree(array, start, end){        
         if(start > end){
             return null;
         }
-
-        // let mid = start + Math.floor((end - start) / 2);
-        // let node = new Node(nextReturnedArray[mid]);
-        // node.left = this.buildTree(nextReturnedArray, start, mid-1);
-        // node.right = this.buildTree(nextReturnedArray, mid+1 , end)
         let mid = start + Math.floor((end - start) / 2);
         let node = new Node(array[mid]);
         node.left = this.buildTree(array, start, mid-1);
@@ -43,7 +36,7 @@ class Tree{
                 return 1;
             }
         });
-        // return array;
+        
         this.removeDups(array);
     }
 
@@ -53,8 +46,7 @@ class Tree{
                 array.splice(i,1);
             }
         }
-        this.root = this.buildTree(array, 0, array.length-1);
-        // return array;
+        this.root = this.buildTree(array, 0, array.length-1);        
     }
 
 
@@ -322,9 +314,7 @@ class Tree{
         }
         generateLessThanRoot(currentNodeValue, arrayOfValues);
 
-        console.log("generated numbers:" + generatedNumbers);
-        
-        // for (let i=0 ; i<arrayOfValues.length)
+        console.log("generated numbers:" + generatedNumbers);               
         generatedNumbers.forEach(element => {
             this.insert(element);
             console.log("inserted succesfully")
@@ -334,8 +324,7 @@ class Tree{
 
     driver(){
         let randomArray = [];
-        function generateRandomArray(){
-            // let randomArray = [];
+        function generateRandomArray(){            
             for (let i=0 ; i < 10 ; i++){
                 let randomNum = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
                 randomArray.push(randomNum);
